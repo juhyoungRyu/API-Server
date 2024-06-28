@@ -26,8 +26,6 @@ dataApi.post('/create', (req: Request, res: Response) => {
     }
   }
 
-  console.log(`[LOG] payload: ${JSON.stringify(req.body)} return: ${JSON.stringify(objReturn)}`)
-
   res.send(objReturn)
   return
 })
