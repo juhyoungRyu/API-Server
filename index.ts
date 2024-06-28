@@ -19,7 +19,7 @@ dataApi.post('/create', (req: Request, res: Response) => {
     success: true,
     data: {
       id: getUuid(),
-      name: name.replace('S3', 'S4')
+      name: `${name.replace('S3', 'S4')} (Rest API)`
     },
     error: {
       code: 0,
