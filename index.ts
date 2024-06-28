@@ -13,11 +13,13 @@ app.listen(8080, () => {
 const dataApi: Router = express.Router()
 
 dataApi.post('/create', (req: Request, res: Response) => {
+  const name: string = req.body.name
+
   const objReturn: ObjReturn = {
     success: true,
     data: {
       id: getUuid(),
-      name: req.body.name
+      name: name.replace('S3', 'S4')
     },
     error: {
       code: 0,
