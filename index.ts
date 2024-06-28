@@ -18,6 +18,11 @@ dataApi.post('/create', (req: Request, res: Response) => {
     data: {
       id: getUuid(),
       name: req.body.name
+    },
+    error: {
+      code: 0,
+      type: '',
+      message: ''
     }
   }
 

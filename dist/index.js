@@ -17,6 +17,11 @@ dataApi.post('/create', (req, res) => {
         data: {
             id: (0, projectUtil_1.getUuid)(),
             name: req.body.name
+        },
+        error: {
+            code: 0,
+            type: '',
+            message: ''
         }
     };
     res.send(objReturn);

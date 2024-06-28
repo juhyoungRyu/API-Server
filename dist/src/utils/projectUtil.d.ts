@@ -1,2 +1,2 @@
-declare function getUuid(): void;
+declare function getUuid(): string;
 export { getUuid };

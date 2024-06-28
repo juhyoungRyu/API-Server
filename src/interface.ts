@@ -2,7 +2,9 @@ interface ObjReturn {
   success?: boolean
   data?: {}
   error?: {
-    msg: string
+    code: number
+    type: string
+    message: string
   }
 }
 
