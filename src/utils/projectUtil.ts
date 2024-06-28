@@ -1,0 +1,3 @@
+function getUuid() {}
+
+export { getUuid }
