@@ -15,16 +15,20 @@ const dataApi: Router = express.Router()
 dataApi.post('/create', (req: Request, res: Response) => {
   const objReturn: ObjReturn = {
     success: true,
-    data: {
-      id: getUuid(),
-      name: req.body.name
-    },
+    data: [
+      {
+        id: getUuid(),
+        name: req.body.name
+      }
+    ],
     error: {
       code: 0,
       type: '',
       message: ''
     }
   }
+
+  console.log(`[LOG] payload: ${JSON.stringify(req.body)} return: ${JSON.stringify(objReturn)}`)
 
   res.send(objReturn)
   return
