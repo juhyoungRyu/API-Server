@@ -28,6 +28,7 @@ dataApi.post('/create', (req: Request, res: Response) => {
     }
   }
 
+  console.log(`[POST] Return: ${JSON.stringify(objReturn)}`)
   res.send(objReturn)
   return
 })
