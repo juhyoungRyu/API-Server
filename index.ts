@@ -22,15 +22,15 @@ dataApi.post('/create', (req: Request, res: Response) => {
     // return signature.slice(-16)
   })()
 
-  const cipher = createCipheriv('aes-256-cbc', secret, iv)
-  const encData = cipher.update(req.body.saveData, 'utf8', 'hex').concat(cipher.final('hex'))
+  // const cipher = createCipheriv('aes-256-cbc', secret, iv)
+  // const encData = cipher.update(req.body.saveData, 'utf8', 'hex').concat(cipher.final('hex'))
 
   const objReturn: ObjReturn = {
     success: true,
     data: {
       secret,
-      iv,
-      encData
+      // iv,
+      // encData
     },
     error: {
       code: 0,
