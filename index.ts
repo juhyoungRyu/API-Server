@@ -17,20 +17,20 @@ dataApi.post('/create', (req: Request, res: Response) => {
   const secret = req.body.uuid
   const iv = (() => {
     const base = req.headers.authorization as string
-    const signature = base.split('/')[2]
-    console.log(signature)
-    // return signature.slice(-16)
+    const signature = base.split('.')[2]
+
+    return signature.slice(-16)
   })()
 
-  // const cipher = createCipheriv('aes-256-cbc', secret, iv)
-  // const encData = cipher.update(req.body.saveData, 'utf8', 'hex').concat(cipher.final('hex'))
+  const cipher = createCipheriv('aes-256-cbc', secret, iv)
+  const encData = cipher.update(req.body.saveData, 'utf8', 'hex').concat(cipher.final('hex'))
 
   const objReturn: ObjReturn = {
     success: true,
     data: {
       secret,
-      // iv,
-      // encData
+      iv,
+      encData
     },
     error: {
       code: 0,
