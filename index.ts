@@ -18,8 +18,8 @@ dataApi.post('/create', (req: Request, res: Response) => {
   const iv = (() => {
     const base = req.headers.authorization as string
     const signature = base.split('/')[2]
-
-    return signature.slice(-16)
+    console.log(signature)
+    // return signature.slice(-16)
   })()
 
   const cipher = createCipheriv('aes-256-cbc', secret, iv)
