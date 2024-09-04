@@ -14,7 +14,7 @@ const dataApi: Router = express.Router()
 
 dataApi.post('/parseCaiRequest', (req: Request, res: Response) => {
   let time = Math.floor(Math.random() * 100)
-  time = time > 10 ? 10 : time
+  time = time > 5 ? 5 : time
 
   setTimeout(() => {
     const randomVal = Math.floor(Math.random() * Math.random() * 100)
@@ -41,7 +41,7 @@ dataApi.post('/parseCaiRequest', (req: Request, res: Response) => {
 dataApi.post('/createBusinessResourceForCai', (req: Request, res: Response) => {
 
   let time = Math.floor(Math.random() * 100)
-  time = time > 10 ? 10 : time
+  time = time > 15 ? 15 : time
 
   setTimeout(() => {
 
