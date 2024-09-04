@@ -13,12 +13,20 @@ app.listen(8080, () => {
 const dataApi: Router = express.Router()
 
 dataApi.post('/parseCaiRequest', (req: Request, res: Response) => {
+  let time = Math.floor(Math.random() * 100)
+  time = time > 10 ? 10 : time
+
+  setTimeout(() => {
+    console.log('done')
+  }, time * 1000)
+
+  const randomVal = Math.floor(Math.random() * Math.random() * 100)
 
   const objReturn: ObjReturn = {
     success: true,
     data: {
       responseKey: `${getUuid()}.json`,
-      responseCount: Math.floor(Math.random() * Math.random() * 100),
+      responseCount: randomVal === 0 ? 12 : randomVal,
       physicalFlag: false
     },
     error: {
