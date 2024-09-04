@@ -12,7 +12,36 @@ app.listen(8080, () => {
 
 const dataApi: Router = express.Router()
 
-dataApi.post('/', (req: Request, res: Response) => {
+dataApi.post('/parseCaiRequest', (req: Request, res: Response) => {
+
+  const objReturn: ObjReturn = {
+    success: true,
+    data: {
+      responseKey: `${getUuid()}.json`,
+      responseCount: Math.floor(Math.random() * Math.random() * 100),
+      physicalFlag: false
+    },
+    error: {
+      code: 0,
+      type: '',
+      message: ''
+    }
+  }
+
+  console.log(`[POST] Return: ${JSON.stringify(objReturn)}`)
+  res.send(objReturn)
+  return
+})
+
+dataApi.post('/createBusinessResourceForCai', (req: Request, res: Response) => {
+
+  let time = Math.floor(Math.random() * 100)
+  time = time > 10 ? 10 : time
+
+  setTimeout(() => {
+    console.log('done')
+  }, time * 1000)
+
 
   const objReturn: ObjReturn = {
     success: true,
