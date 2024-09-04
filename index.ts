@@ -17,28 +17,25 @@ dataApi.post('/parseCaiRequest', (req: Request, res: Response) => {
   time = time > 10 ? 10 : time
 
   setTimeout(() => {
-    console.log('done')
-  }, time * 1000)
+    const randomVal = Math.floor(Math.random() * Math.random() * 100)
 
-  const randomVal = Math.floor(Math.random() * Math.random() * 100)
-
-  const objReturn: ObjReturn = {
-    success: true,
-    data: {
-      responseKey: `${getUuid()}.json`,
-      responseCount: randomVal === 0 ? 12 : randomVal,
-      physicalFlag: false
-    },
-    error: {
-      code: 0,
-      type: '',
-      message: ''
+    const objReturn: ObjReturn = {
+      success: true,
+      data: {
+        responseKey: `${getUuid()}.json`,
+        responseCount: randomVal === 0 ? 12 : randomVal,
+        physicalFlag: false
+      },
+      error: {
+        code: 0,
+        type: '',
+        message: ''
+      }
     }
-  }
-
-  console.log(`[POST] Return: ${JSON.stringify(objReturn)}`)
-  res.send(objReturn)
-  return
+    console.log(`[POST] Return: ${JSON.stringify(objReturn)}`)
+    res.send(objReturn)
+    return
+  }, time * 1000)
 })
 
 dataApi.post('/createBusinessResourceForCai', (req: Request, res: Response) => {
@@ -47,25 +44,26 @@ dataApi.post('/createBusinessResourceForCai', (req: Request, res: Response) => {
   time = time > 10 ? 10 : time
 
   setTimeout(() => {
-    console.log('done')
+
+    const objReturn: ObjReturn = {
+      success: true,
+      data: {
+        id: getUuid()
+      },
+      error: {
+        code: 0,
+        type: '',
+        message: ''
+      }
+    }
+
+    console.log(`[POST] Return: ${JSON.stringify(objReturn)}`)
+    res.send(objReturn)
+    return
+
   }, time * 1000)
 
 
-  const objReturn: ObjReturn = {
-    success: true,
-    data: {
-      id: getUuid()
-    },
-    error: {
-      code: 0,
-      type: '',
-      message: ''
-    }
-  }
-
-  console.log(`[POST] Return: ${JSON.stringify(objReturn)}`)
-  res.send(objReturn)
-  return
 })
 
 app.use('/api', dataApi) // 라우터를 앱에 등록
