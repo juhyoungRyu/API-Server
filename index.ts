@@ -12,6 +12,24 @@ app.listen(8080, () => {
 
 const dataApi: Router = express.Router()
 
+dataApi.post('/create', (req: Request, res: Response) => {
+  console.log(`[POST] Return: ${JSON.stringify(req)}`)
+
+  const objReturn: ObjReturn = {
+    success: true,
+    data: {
+      uuid: getUuid(),
+    },
+    error: {
+      code: 0,
+      type: '',
+      message: ''
+    }
+  }
+  console.log(`[POST] Return: ${JSON.stringify(objReturn)}`)
+  res.send(objReturn)
+})
+
 dataApi.post('/parseCaiRequest', (req: Request, res: Response) => {
   let time = Math.floor(Math.random() * 100)
   time = time > 5 ? 5 : time
@@ -62,8 +80,6 @@ dataApi.post('/createBusinessResourceForCai', (req: Request, res: Response) => {
     return
 
   }, time * 1000)
-
-
 })
 
 app.use('/api', dataApi) // 라우터를 앱에 등록
