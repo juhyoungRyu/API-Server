@@ -13,7 +13,7 @@ app.listen(8080, () => {
 const dataApi: Router = express.Router()
 
 dataApi.post('/create', (req: Request, res: Response) => {
-  console.log(`[POST] Return: ${JSON.stringify(req)}`)
+  console.log(`[POST] Return: ${req}`)
 
   const objReturn: ObjReturn = {
     success: true,
@@ -26,7 +26,7 @@ dataApi.post('/create', (req: Request, res: Response) => {
       message: ''
     }
   }
-  console.log(`[POST] Return: ${JSON.stringify(objReturn)}`)
+  console.log(`[POST] Return: ${objReturn}`)
   res.send(objReturn)
 })
 
