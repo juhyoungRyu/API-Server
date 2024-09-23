@@ -27,7 +27,8 @@ dataApi.post('/create', (req: Request, res: Response) => {
       message: ''
     }
   }
-  console.log(`[POST] Return: ${objReturn}`)
+  console.log(`[POST] Return:`)
+  console.log(res)
   res.send(objReturn)
 })
 
